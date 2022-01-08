@@ -18,41 +18,45 @@ namespace SRossGCDeliverable2
             int optOneCount = 0;
             int optTwoCount = 0;
             int emptyGlassCount = 0;
-                       
-            Console.Write("Welcome to Cherry Blossom Buffet, how many will be joining your party? ");
+
+            Console.WriteLine("Hellurrr and Welcome to MaDea's $9.99 ALL you can eat Buffet... ");
+            Console.WriteLine("Where NO carry outs are allowed.");
+            Console.WriteLine("Please leave your over-sized purses and man-bags at home..LOL!");
+            Console.WriteLine();
+            Console.Write("How many in your party? ");
             string input = Console.ReadLine();
             int guestCount = 0;
             bool isValidGuestCount = (int.TryParse(input, out guestCount)
                                     && guestCount >= 1 && guestCount <=6 );
 
-           
-
             if (!isValidGuestCount)
             {
-                Console.WriteLine("I'm sorry, we're not able to accomodate your party today.");
+                Console.WriteLine("Oh my, I'm sorry we aren't able to accomodate your party size today.");
                 Console.ReadLine();
             }
-            else //if(isValidGuestCount)
+            else
             {
                 int[] guests = new int[guestCount - 1];
 
-                Console.Write("Party of " + input + ". Please, right this way."
-                                + "Can I start you off with something to drink?"
-                                + "Would you like to try our house Sake or Shochu. ");
-
+                
+                Console.WriteLine("And what a lovely party of " + input + " you are!");
+                Console.WriteLine("Please, right this way.");
+                Console.WriteLine();
+                Console.WriteLine("Can I start you off with something to drink?");
+                Console.WriteLine("All we got today is our house Sake or Shochu. Pick one.");
                 Console.WriteLine();
 
                 for (int i = 0; i <= guests.Length; i++)
                 {
                     string guest = "Guest " + (i + 1).ToString();
-                    Console.Write(guest + " what will you have today? ");
+                    Console.Write(guest + " - Sake or Shochu, whatchu having? ");
                     string order = Console.ReadLine().ToLower().Trim();
 
                     switch (order)
                     {
                         case optOne:
                             optOneCount = optOneCount + 1;
-                            Console.WriteLine(order + "! Excellent Choice!");
+                            Console.WriteLine("Oh, " + order.ToUpper() + " that's a nice choice.");
                             Console.WriteLine();
 
                             decimal subtotal1 = buffetPrice + optOnePrice;
@@ -62,7 +66,7 @@ namespace SRossGCDeliverable2
 
                         case optTwo:
                             optTwoCount = optTwoCount + 1;
-                            Console.WriteLine(order + "! Excellent Choice!");
+                            Console.WriteLine("Yes, the " + order.ToUpper() + " is a lovely choice and particularly tasty today.");
                             Console.WriteLine();
 
                             decimal subtotal2 = buffetPrice + optTwoPrice;
@@ -83,21 +87,20 @@ namespace SRossGCDeliverable2
 
                 string printedBill = String.Format("{0:0.##}", totalBill.ToString());
 
-                Console.WriteLine("Ok, I have: ");
+                Console.WriteLine();
+                Console.WriteLine("Alright now, go on over to the buffet and help yourself.");
+                Console.WriteLine("Please remember to wash your hands and put your mask on first.");
+                Console.WriteLine();
+                Console.WriteLine("I'll be right back with");
                 Console.WriteLine("     " + optOneCount + " " + optOne);
                 Console.WriteLine("     " + optTwoCount + " " + optTwo);
                 Console.WriteLine("     " + emptyGlassCount + " " + emptyGlass);
-                Console.WriteLine("Coming right up!");
                 Console.WriteLine();
                 Console.WriteLine("Your total bill is $" + totalBill + ".");
-                Console.WriteLine();
-                Console.WriteLine("I hope you enjoy today's buffet selections.");
-                Console.WriteLine("Please help yourself, and I'll be right back with your drinks.");
+                Console.WriteLine("We accept cash, debit, credit, EBT, Amazon gift cards, and tipping the waiter is strongly encouraged.");
+                Console.WriteLine("Thank You very much!");
                 Console.ReadLine();
             }
         }
     }
 }
-
-// Need to account for zero count on either option, 
-// and default option before printing total order and bill.
